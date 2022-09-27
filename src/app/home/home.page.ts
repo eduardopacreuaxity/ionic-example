@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { IonMenu } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,21 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  @ViewChild(IonMenu) menu: IonMenu;
+
+  menuList = [
+    { name: 'Messages', route: 'tabs/messages' },
+    { name: 'Form', route: 'tabs/form' },
+    { name: 'List', route: 'tabs/list' }
+  ]
+
+  constructor(
+    private router: Router
+  ) {}
+
+  redirect(route: string) {
+    this.menu.close();
+    this.router.navigate([route]);
+  }
 
 }
