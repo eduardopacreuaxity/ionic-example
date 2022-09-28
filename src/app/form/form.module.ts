@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -16,6 +17,7 @@ import { FormPage } from './form.page';
     IonicModule,
     FormPageRoutingModule
   ],
-  declarations: [FormPage]
+  declarations: [FormPage],
+  providers: [BarcodeScanner]
 })
 export class FormPageModule {}
